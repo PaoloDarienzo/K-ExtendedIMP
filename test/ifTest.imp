@@ -1,0 +1,21 @@
+{
+
+ bool result1, result2, check;
+ int x, y;
+
+ x=9;
+ y=21;
+
+ IF x<y THEN
+   result1 = true;
+ ELSE
+   result1 = false;
+ END-IF
+
+ IF x>y THEN
+   result2 = false;
+ ELSE
+   result2 = true;
+ END-IF
+
+}
