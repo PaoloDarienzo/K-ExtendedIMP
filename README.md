@@ -1,2 +1,3 @@
 # K-ExtendedIMP
-Extended IMP with K Framework
+Extended IMP language with some COBOL functions using K Framework.
+Univr, 2017
