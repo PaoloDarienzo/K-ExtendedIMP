@@ -1,0 +1,20 @@
+{
+
+bool check;
+bool e, mt, lt, ne, ieqt, iltoe, ip, inz;
+
+int x, y;
+
+x=10;
+y=5;
+
+e = (x==x);
+mt = x>y;
+lt = y<=x;
+ne = x!=y;
+ieqt = x IS EQUAL TO x;
+iltoe = y IS LESS THAN OR EQUAL TO y;
+ip = x IS POSITIVE;
+inz = y IS NOT ZERO;
+
+}

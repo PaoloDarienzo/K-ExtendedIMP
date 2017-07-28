@@ -1,0 +1,26 @@
+{
+int power, mult, div, add, sub, zero, exp;
+string saluto;
+bool b;
+int x, y;
+string s, p;
+
+x=10;
+y=2;
+b=true;
+s="ciao";
+p=" Come va?";
+
+power = x**y;
+mult = x*y;
+div = x/y;
+add = x+y;
+sub = x-y;
+
+zero = (x*y) - (y*x);
+
+saluto = (s + p);
+
+exp = ((x+y)*2) - ((x-y)/2);
+
+}

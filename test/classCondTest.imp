@@ -1,0 +1,46 @@
+{
+int checkNum, checkNotNum, checkAlpha, checkAlphaUp, checkNotAlphaLow;
+int i;
+string ss, ssUp, sn, ssLow;
+checkNum=5;
+checkNotNum=5;
+checkAlpha=5;
+checkAlphaUp=5;
+checkNotAlphaLow=5;
+
+i=5000;
+ss="Hello Floyd";
+sn="9000";
+ssUp="HAL";
+ssLow="space";
+
+IF (i IS NUMERIC) THEN
+  checkNum=1;
+ELSE
+  checkNum=0;
+END-IF
+
+IF (sn IS NOT NUMERIC) THEN
+  checkNotNum=0;
+ELSE
+  checkNotNum=1;
+END-IF
+
+IF (ss IS ALPHABETIC) THEN
+  IF (ssUp IS ALPHABETIC-UPPER) THEN
+    checkAlpha=1;
+    checkAlphaUp=1;
+  ELSE
+    checkAlphaUp=0;
+  END-IF
+ELSE
+  checkAlpha=0;
+END-IF
+
+IF (ssUp IS NOT ALPHABETIC-LOWER) THEN
+  checkNotAlphaLow=1;
+ELSE
+  checkNotAlphaLow=0;
+END-IF
+
+}

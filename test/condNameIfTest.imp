@@ -1,0 +1,44 @@
+{
+ bool checka, checkb, checkc, checkd;
+
+ int x;
+ 88 a VALUE 50.
+ 88 b VALUE IS 30.
+ 88 c VALUES ARE 10 THRU 49.
+
+ string y;
+ 88 d VALUE "ciao".
+
+ x=50;
+
+ IF a THEN
+  checka=true;
+ ELSE
+  checka=false; 
+ END-IF
+
+ x=30;
+
+ IF b THEN
+  checkb=true;
+ ELSE
+  checkb=false; 
+ END-IF
+
+ x=12;
+
+ IF c THEN
+  checkc=true;
+ ELSE
+  checkc=false; 
+ END-IF
+
+ y="ciao";
+
+ IF d THEN
+  checkd=true;
+ ELSE
+  checkd=false; 
+ END-IF
+
+}

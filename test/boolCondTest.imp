@@ -1,0 +1,17 @@
+{
+
+bool check;
+bool and1, and2, or1, or2;
+
+int x, y;
+
+x=10;
+y=5;
+
+and1 = x==x AND y==y;
+and2 = (x==x) && (y==y);
+
+or1 = (x==x) OR (y!=y);
+or2 = x!=x || y==y;
+
+}
