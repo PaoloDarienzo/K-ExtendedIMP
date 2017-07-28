@@ -1,0 +1,8 @@
+load "/home/paolo/Scrivania/k/lib/maude/lib/k-prelude"
+load "base.maude"
+load "builtins.maude"
+mod IMP is 
+  including IMP-BASE .
+  including IMP-BUILTINS .
+eq mainModule = 'IMP .
+endm

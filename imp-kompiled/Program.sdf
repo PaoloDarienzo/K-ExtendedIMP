@@ -1,0 +1,237 @@
+module Program
+
+imports Common
+imports KBuiltinsBasic
+exports
+
+context-free syntax
+context-free priorities
+{
+    Int -> AExp {}
+    Id -> AExp {}
+    AExp "**" AExp -> AExp {left, cons("AExp1484Syn")}
+} > {
+    AExp "*" AExp -> AExp {left, cons("AExp1288Syn")}
+    AExp "/" AExp -> AExp {left, cons("AExp1343Syn")}
+} > {
+    AExp "+" AExp -> AExp {left, cons("AExp1375Syn")}
+    AExp "-" AExp -> AExp {left, cons("AExp1362Syn")}
+}
+
+context-free priorities
+{
+    Bool -> BExp {}
+    Id -> BExp {}
+    RangeInt -> BExp {}
+    RangeString -> BExp {}
+    Exps "==" Exps -> BExp {left, cons("BExp1473Syn")}
+    Exps ">" Exps -> BExp {left, cons("BExp1263Syn")}
+    Exps "<" Exps -> BExp {left, cons("BExp1292Syn")}
+    Exps ">=" Exps -> BExp {left, cons("BExp180Syn")}
+    Exps "<=" Exps -> BExp {left, cons("BExp1459Syn")}
+    Exps "!=" Exps -> BExp {left, cons("BExp1242Syn")}
+    "!" BExp -> BExp {cons("BExp184Syn")}
+    "NOT" BExp -> BExp {cons("BExp1385Syn")}
+    Exps "IS" "EQUAL TO" Exps -> BExp {left, cons("BExp190Syn")}
+    Exps "IS" "GREATER THAN" Exps -> BExp {left, cons("BExp18Syn")}
+    Exps "IS" "LESS THAN" Exps -> BExp {left, cons("BExp1320Syn")}
+    Exps "IS" "GREATER THAN" "OR" "EQUAL TO" Exps -> BExp {left, cons("BExp125Syn")}
+    Exps "IS" "LESS THAN" "OR" "EQUAL TO" Exps -> BExp {left, cons("BExp1273Syn")}
+    Exps "IS" "=" Exps -> BExp {left, cons("BExp1232Syn")}
+    Exps "IS" ">" Exps -> BExp {left, cons("BExp1259Syn")}
+    Exps "IS" "<" Exps -> BExp {left, cons("BExp1246Syn")}
+    Exps "IS" ">=" Exps -> BExp {left, cons("BExp1495Syn")}
+    Exps "IS" "<=" Exps -> BExp {left, cons("BExp1470Syn")}
+    Exps "IS" "NOT" "EQUAL TO" Exps -> BExp {left, cons("BExp1300Syn")}
+    Exps "IS" "NOT" "GREATER THAN" Exps -> BExp {left, cons("BExp1449Syn")}
+    Exps "IS" "NOT" "LESS THAN" Exps -> BExp {left, cons("BExp1286Syn")}
+    Exps "IS" "NOT" "=" Exps -> BExp {left, cons("BExp1298Syn")}
+    Exps "IS" "NOT" ">" Exps -> BExp {left, cons("BExp129Syn")}
+    Exps "IS" "NOT" "<" Exps -> BExp {left, cons("BExp1278Syn")}
+    AExp "IS" "POSITIVE" -> BExp {cons("BExp1228Syn")}
+    AExp "IS" "NEGATIVE" -> BExp {cons("BExp1403Syn")}
+    AExp "IS" "ZERO" -> BExp {cons("BExp1568Syn")}
+    AExp "IS" "NOT" "POSITIVE" -> BExp {cons("BExp1378Syn")}
+    AExp "IS" "NOT" "NEGATIVE" -> BExp {cons("BExp1243Syn")}
+    AExp "IS" "NOT" "ZERO" -> BExp {cons("BExp1282Syn")}
+    Exps "IS" "NUMERIC" -> BExp {cons("BExp1588Syn")}
+    Exps "IS" "ALPHABETIC" -> BExp {cons("BExp1462Syn")}
+    Exps "IS" "ALPHABETIC-LOWER" -> BExp {cons("BExp1306Syn")}
+    Exps "IS" "ALPHABETIC-UPPER" -> BExp {cons("BExp186Syn")}
+    Exps "IS" "NOT" "NUMERIC" -> BExp {cons("BExp1234Syn")}
+    Exps "IS" "NOT" "ALPHABETIC" -> BExp {cons("BExp1447Syn")}
+    Exps "IS" "NOT" "ALPHABETIC-LOWER" -> BExp {cons("BExp147Syn")}
+    Exps "IS" "NOT" "ALPHABETIC-UPPER" -> BExp {cons("BExp1285Syn")}
+} > {
+    BExp "AND" BExp -> BExp {left, cons("BExp1466Syn")}
+    BExp "&&" BExp -> BExp {left, cons("BExp1530Syn")}
+    BExp "OR" BExp -> BExp {left, cons("BExp1325Syn")}
+    BExp "||" BExp -> BExp {left, cons("BExp1553Syn")}
+}
+
+context-free start-symbols
+DzString DzBool AExp Blocks Stmts BExp String RangeString SExp Int Stmt CondName Float Bool Exps Pgm Block Ids Id DzInt KItem RangeInt DzFloat K
+context-free syntax
+    "string" InsertDzIds ";" -> Stmt {cons("Stmt168Syn")}
+    DzString -> String {}
+    {Stmt ""}* -> Stmts {cons("Stmts1ListSyn")}
+    SExp "+" SExp -> SExp {left, cons("SExp14Syn")}
+    Id "=" InsertDzBExp ";" -> Stmt {cons("Stmt144Syn")}
+    "88" InsertDzId "VALUES" "ARE" InsertDzInt "THRU" InsertDzInt "." -> CondName {cons("CondName1377Syn")}
+    "(" InsertDzAExp ")" -> AExp {cons("AExp1Bracket")}
+    "88" InsertDzId "VALUES" InsertDzInt "THRU" InsertDzInt "." -> CondName {cons("CondName1509Syn")}
+    DzInt -> Int {}
+    {Block ""}* -> Blocks {cons("Blocks1ListSyn")}
+    "(" InsertDzString "," InsertDzString ")" -> RangeString {cons("RangeString1455Syn")}
+    RangeString -> KItem {}
+    {Id ","}* -> Ids {cons("Ids1ListSyn")}
+    "88" InsertDzId "VALUE" "IS" InsertDzInt "." -> CondName {cons("CondName1349Syn")}
+    String -> SExp {}
+    "88" InsertDzId "VALUE" InsertDzString "." -> CondName {cons("CondName1308Syn")}
+    Exps ";" -> Stmt {cons("Stmt1284Syn")}
+    DzFloat -> Float {}
+    "88" InsertDzId "VALUE" InsertDzString "." CondName -> CondName {cons("CondName177Syn")}
+    "88" InsertDzId "VALUE" InsertDzInt "." -> CondName {cons("CondName1359Syn")}
+    "88" InsertDzId "VALUE" InsertDzInt "." CondName -> CondName {cons("CondName1558Syn")}
+    Id -> SExp {}
+    "{" "}" -> Block {cons("Block1580Syn")}
+    "bool" InsertDzIds ";" -> Stmt {cons("Stmt123Syn")}
+    "IF" InsertDzBExp "THEN" InsertDzStmts "ELSE" InsertDzStmts "END-IF" -> Stmt {cons("Stmt124Syn")}
+    "int" InsertDzIds ";" -> Stmt {cons("Stmt154Syn")}
+    RangeInt -> KItem {}
+    DzBool -> Bool {}
+    "int" InsertDzId ";" CondName -> Stmt {cons("Stmt128Syn")}
+    "{" InsertDzStmts "}" -> Block {cons("Block1565Syn")}
+    Id "=" InsertDzExps ";" -> Stmt {cons("Stmt1387Syn")}
+    Blocks -> Pgm {}
+    "88" InsertDzId "VALUES" "ARE" InsertDzInt "THRU" InsertDzInt "." CondName -> CondName {cons("CondName1269Syn")}
+    Block -> Stmt {}
+    SExp -> Exps {}
+    "88" InsertDzId "VALUE" "IS" InsertDzString "." -> CondName {cons("CondName135Syn")}
+    AExp -> Exps {}
+    "(" InsertDzInt "," InsertDzInt ")" -> RangeInt {cons("RangeInt159Syn")}
+    "string" InsertDzId ";" CondName -> Stmt {cons("Stmt1502Syn")}
+    "88" InsertDzId "VALUE" "IS" InsertDzString "." CondName -> CondName {cons("CondName1536Syn")}
+    "88" InsertDzId "VALUES" InsertDzInt "THRU" InsertDzInt "." CondName -> CondName {cons("CondName1589Syn")}
+    "(" InsertDzSExp ")" -> SExp {cons("SExp1Bracket")}
+    "88" InsertDzId "VALUE" "IS" InsertDzInt "." CondName -> CondName {cons("CondName195Syn")}
+    "(" InsertDzBExp ")" -> BExp {cons("BExp1Bracket")}
+    AExp -> InsertDzAExp
+    Stmts -> InsertDzStmts
+    BExp -> InsertDzBExp
+    Exps -> InsertDzExps
+    Ids -> InsertDzIds
+    Id -> InsertDzId
+    String -> InsertDzString
+    SExp -> InsertDzSExp
+    Int -> InsertDzInt
+
+
+    DzDzString        -> DzString    {cons("DzString1Const")}
+    DzDzBool        -> DzBool    {cons("DzBool1Const")}
+    DzDzInt        -> DzInt    {cons("DzInt1Const")}
+    DzDzId        -> DzId    {cons("DzId1Const")}
+    DzDzFloat        -> DzFloat    {cons("DzFloat1Const")}
+
+
+
+%% start symbols subsorts
+    KItem        -> K
+    DzString        -> K
+    DzBool        -> K
+    AExp        -> K
+    BExp        -> K
+    String        -> K
+    RangeString        -> K
+    SExp        -> K
+    Int        -> K
+    Stmt        -> K
+    CondName        -> K
+    Float        -> K
+    Bool        -> K
+    Exps        -> K
+    Pgm        -> K
+    Block        -> K
+    Id        -> K
+    DzInt        -> K
+    RangeInt        -> K
+    DzFloat        -> K
+lexical syntax
+    "Infinity" -> DzDzFloat
+    "true" -> DzDzBool
+    "false" -> DzDzBool
+    "NaN" -> DzDzFloat
+
+
+    "ZERO" -> IdDz {reject}
+    "VALUE" -> IdDz {reject}
+    "ALPHABETIC" -> IdDz {reject}
+    "THRU" -> IdDz {reject}
+    "ELSE" -> IdDz {reject}
+    "IF" -> IdDz {reject}
+    "IS" -> IdDz {reject}
+    "NOT" -> IdDz {reject}
+    "ARE" -> IdDz {reject}
+    "AND" -> IdDz {reject}
+    "true" -> IdDz {reject}
+    "NEGATIVE" -> IdDz {reject}
+    "THEN" -> IdDz {reject}
+    "POSITIVE" -> IdDz {reject}
+    "bool" -> IdDz {reject}
+    "string" -> IdDz {reject}
+    "NaN" -> IdDz {reject}
+    "VALUES" -> IdDz {reject}
+    "NUMERIC" -> IdDz {reject}
+    "OR" -> IdDz {reject}
+    "Infinity" -> IdDz {reject}
+    "false" -> IdDz {reject}
+    "int" -> IdDz {reject}
+
+lexical restrictions
+    %% follow restrictions
+    "VALUE" -/- [S]
+
+
+lexical syntax
+    [A-Za-z\_][A-Za-z0-9\_]* -> IdDz
+    "ZERO" -> IdDz {reject}
+    "VALUE" -> IdDz {reject}
+    "ALPHABETIC" -> IdDz {reject}
+    "THRU" -> IdDz {reject}
+    "ELSE" -> IdDz {reject}
+    "IF" -> IdDz {reject}
+    "IS" -> IdDz {reject}
+    "NOT" -> IdDz {reject}
+    "ARE" -> IdDz {reject}
+    "AND" -> IdDz {reject}
+    "true" -> IdDz {reject}
+    "NEGATIVE" -> IdDz {reject}
+    "THEN" -> IdDz {reject}
+    "POSITIVE" -> IdDz {reject}
+    "bool" -> IdDz {reject}
+    "string" -> IdDz {reject}
+    "NaN" -> IdDz {reject}
+    "VALUES" -> IdDz {reject}
+    "NUMERIC" -> IdDz {reject}
+    "OR" -> IdDz {reject}
+    "Infinity" -> IdDz {reject}
+    "false" -> IdDz {reject}
+    "int" -> IdDz {reject}
+    [\-\+]? [0-9]+ -> DzIntDz
+    "88" -> DzIntDz {reject}
+    [\+\-]?[0-9]+"."[0-9]+([eE][\+\-]?[0-9]+)?([fFdD]|([pP][0-9]+[xX][0-9]+))? -> DzFloatDz
+    [\+\-]?"Infinity"([fFdD]|([pP][0-9]+[xX][0-9]+))? -> DzFloatDz
+    "Infinity" -> DzFloatDz {reject}
+    "NaN"([fFdD]|([pP][0-9]+[xX][0-9]+))? -> DzFloatDz
+    "NaN" -> DzFloatDz {reject}
+    "\"" ((~[\"\n\r\\]) | (((([\\][nrtf\"\\]) | ([\\][x][0-9a-fA-F][0-9a-fA-F])) | ([\\][u][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])) | ([\\][U][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])))* "\"" -> DzStringDz
+context-free syntax
+    DzStringDz -> DzString {cons("DzString1Const")}
+    IdDz -> Id {cons("Id1Const")}
+    DzIntDz -> DzInt {cons("DzInt1Const")}
+    DzFloatDz -> DzFloat {cons("DzFloat1Const")}
+
+
+context-free restrictions
+    Id -/- [A-Za-z0-9\_]
+    DzInt -/-  [0-9]
